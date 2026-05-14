@@ -189,6 +189,12 @@ body::before{
 
 .cartaFinal{
     text-align:center;
+    border: 4px solid #ff7eb6;
+    border-radius: 25px;
+    background: rgba(255,126,182,0.5);
+    border: 6px double pink;
+    box-shadow: 0 0 25px pink;
+    backdrop-filter: blur(10px);
 }
 
 .cartaFinal h2{
@@ -259,6 +265,12 @@ body::before{
 
 .fotos img:hover{
     transform:scale(1.05);
+}
+
+.fotoGrande{
+    width: 300px !important;
+    height: auto;
+    cursor:pointer
 }
 
 /* Responsive */
@@ -457,7 +469,9 @@ Gracias por llegar a mi vida 🥹💚💗
 
 <img src="manito.jpeg">
 <img src="poquito.jpeg">
-<img src="1666.jpeg">
+<a href="1666.jpeg" target="_blank">
+<img src="1666.jpeg" class="fotoGrande">
+</a>
 
 </div>
 
