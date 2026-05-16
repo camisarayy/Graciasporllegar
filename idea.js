@@ -91,13 +91,13 @@ setInterval(()=>{
 
 /* Contador */
 
-const inicio = new Date("2025-05-16");
+const inicio = new Date(2025, 4 ,16); //16 mayo 2025
 
 function actualizarContador(){
 
-    const hoy = new Date();
+    const ahora = new Date();
 
-    const diferencia = hoy - inicio;
+    const diferencia = ahora - inicio;
 
     const dias = Math.floor(diferencia / (1000*60*60*24));
 
@@ -106,3 +106,70 @@ function actualizarContador(){
 }
 
 actualizarContador();
+
+/* MODAL FOTOS */
+
+const modal = document.getElementById("modal");
+const modalImg = document.getElementById("imgGrande");
+const fotos = document.querySelectorAll(".fotoGrande");
+const cerrar = document.querySelector(".cerrar");
+const siguiente = document.querySelector(".siguiente");
+const anterior = document.querySelector(".anterior");
+
+let imagenActual = 0;
+
+/* Abrir imágenes */
+
+fotos.forEach((foto,index)=>{
+
+   foto.onclick = function(){
+
+      modal.style.display = "flex";
+
+      modalImg.src = this.src;
+
+      imagenActual = index;
+
+   }
+
+});
+
+/* Cerrar */
+
+cerrar.onclick = function(){
+
+   modal.style.display = "none";
+
+}
+
+/* Siguiente */
+
+siguiente.onclick = function(){
+
+   imagenActual++;
+
+   if(imagenActual >= fotos.length){
+
+      imagenActual = 0;
+
+   }
+
+   modalImg.src = fotos[imagenActual].src;
+
+}
+
+/* Anterior */
+
+anterior.onclick = function(){
+
+   imagenActual--;
+
+   if(imagenActual < 0){
+
+      imagenActual = fotos.length - 1;
+
+   }
+
+   modalImg.src = fotos[imagenActual].src;
+
+}

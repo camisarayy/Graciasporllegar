@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>16 de Mayo 💗</title>
 
+<link rel="icon" type="image/png" href="coraspiderykitty-removebg-preview.png">
 <link rel="stylesheet" href="idea.css">
 
 
@@ -40,11 +41,48 @@ body::before{
 #inicio{
     height:100vh;
     display:flex;
-    flex-direction:column;
+    flex-direction: column;
     justify-content:center;
     align-items:center;
     text-align:center;
-    padding:20px;
+    gap: 20px;
+  
+}
+
+/* ESTRELLAS */
+
+.estrellas{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+
+    background:
+    radial-gradient(2px 2px at 20px 30px, white, transparent),
+    radial-gradient(2px 2px at 40px 70px, white, transparent),
+    radial-gradient(1px 1px at 90px 40px, white, transparent),
+    radial-gradient(2px 2px at 130px 80px, white, transparent),
+    radial-gradient(1px 1px at 160px 30px, white, transparent);
+
+    background-size:200px 200px;
+
+    animation:moverEstrellas 10s linear infinite;
+
+    z-index:-1;
+    opacity:0.7;
+}
+
+@keyframes moverEstrellas{
+
+    from{
+        transform:translateY(0);
+    }
+
+    to{
+        transform:translateY(-200px);
+    }
+
 }
 
 #inicio h1{
@@ -57,7 +95,9 @@ body::before{
     width: 90%;
     max-width: 800px;
     text-decoration-style: double;
-    text-shadow: 1px 2px #999;
+    text-shadow: 0 0 10px #ff7dc0,
+    0 0 20px #ff7dc0,
+    0 0 40px #ff7dc0;
     display: inline-block;
 }
 
@@ -68,12 +108,12 @@ body::before{
 }
 
 #botonInicio{
-    padding:16px 35px;
+    padding:12px 25px;
     border:none;
-    border-radius:40px;
+    border-radius:20px;
     background:#ff4fa3;
     color:white;
-    font-size:1rem;
+    font-size:16px;
     cursor:pointer;
     transition:0.3s;
     box-shadow:0 0 20px #ff4fa388;
@@ -108,14 +148,55 @@ body::before{
 
 
 .card{
+    .card{
     width:100%;
     max-width:850px;
     background:#181818;
     border-radius:30px;
     padding:35px;
-    box-shadow:0 0 30px rgba(255,255,255,0.05);
-    border:1px solid rgba(255,255,255,0.08);
+
+    backdrop-filter: blur(12px);
+    background: rgba(27, 84, 0, 0.795);
+
+    border:2px solid rgba(255,255,255,0.15);
+
+    box-shadow:
+    0 0 15px rgba(255,105,180,0.25),
+    0 0 30px rgba(144,238,144,0.15);
+
+    position:relative;
+    overflow:hidden;
+
+    isolation: isolate;
 }
+
+.card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    border-radius:30px;
+
+    border:2px solid transparent;
+
+    background:
+    linear-gradient(#181818,#181818) padding-box,
+    linear-gradient(45deg,#ff9ac7,#ffffff,#8affc1,#ff9ac7) border-box;
+
+    pointer-events:none;
+
+    z-index: 0;
+}
+
+}
+
+.card > *{
+    position: relative;
+    z-index: 1;
+}
+
 
 
 
@@ -267,11 +348,16 @@ body::before{
     transform:scale(1.05);
 }
 
-.fotoGrande{
+.fotoschat{
     width: 300px !important;
     height: auto;
-    cursor:pointer
+    border-radius: 20px;
+
 }
+
+
+
+
 
 /* Responsive */
 
@@ -294,12 +380,517 @@ body::before{
     .titulo{
         font-size:1.7rem;
     }
+    .logo{
+        width: 200px;
+    }
+    }
+/* PANTALLA PIN */
 
+#pantallaPin{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:linear-gradient(to bottom,#ffd6e7,#fff);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+    background-image: url(rosaverde.jpg);
+}
+
+.pin-box{
+    background:white;
+    padding:30px;
+    border-radius:25px;
+    text-align:center;
+    width:300px;
+    box-shadow:0 15px 30px rgba(0,0,0,0.15),
+    0 0 20px rgba(255, 105, 180, 0.4);
+}
+
+.pin-box h2{
+    color:#ff4f81;
+    margin-bottom:10px;
+}
+
+.frase{
+    color:#ff6b9e;
+    font-size:14px;
+    margin-bottom:15px;
+}
+
+.pin-box input{
+    width:80%;
+    padding:12px;
+    border-radius:15px;
+    border:2px solid #ffb6c1;
+    outline:none;
+    text-align:center;
+    font-size:20px;
+}
+
+.pin-box button{
+    margin-top:15px;
+    padding:10px 25px;
+    border:none;
+    border-radius:20px;
+    background:#ff4f81;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+#mensajeError{
+    color:red;
+    margin-top:10px;
+}
+
+/* EFECTO ERROR */
+
+.error{
+    animation:shake 0.3s;
+}
+
+@keyframes shake{
+
+    0%{transform:translateX(0);}
+    25%{transform:translateX(-5px);}
+    50%{transform:translateX(5px);}
+    75%{transform:translateX(-5px);}
+    100%{transform:translateX(0);}
+
+
+}
+
+/* CIELO */
+
+.cielo{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    z-index:-2;
+}
+
+/* LUNA */
+
+.luna{
+    position:absolute;
+    top:60px;
+    right:80px;
+
+    width:120px;
+    height:120px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(circle,#fff6cc,#ffe58f);
+
+    box-shadow:
+    0 0 30px #fff6cc,
+    0 0 60px #ffe58f;
+
+    animation:brillarLuna 4s ease-in-out infinite;
+}
+
+/* ESTRELLAS */
+
+.estrellas{
+    width:100%;
+    height:100%;
+
+    background-image:
+    radial-gradient(white 1px, transparent 1px),
+    radial-gradient(white 1px, transparent 1px),
+    radial-gradient(#ffd6f5 1px, transparent 1px);
+
+    background-size:
+    120px 120px,
+    180px 180px,
+    250px 250px;
+
+    animation:
+    moverEstrellas 20s linear infinite,
+    parpadear 3s ease-in-out infinite;
+}
+
+/* ANIMACIONES */
+
+@keyframes moverEstrellas{
+
+    from{
+        transform:translateY(0);
+    }
+
+    to{
+        transform:translateY(-120px);
+    }
+
+}
+
+@keyframes parpadear{
+
+    0%{
+        opacity:0.5;
+    }
+
+    50%{
+        opacity:1;
+    }
+
+    100%{
+        opacity:0.5;
+    }
+
+}
+
+@keyframes brillarLuna{
+
+    0%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.05);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+
+}
+
+/* ESTRELLA FUGAZ */
+
+.estrella-fugaz{
+    position:fixed;
+    top:-50px;
+    left:-200px;
+
+    width:250px;
+    height:3px;
+
+    background:linear-gradient(to right,white,transparent);
+
+    transform:rotate(25deg);
+
+    animation:fugaz 6s linear infinite;
+
+    opacity:0;
+}
+
+@keyframes fugaz{
+
+    0%{
+        top:-50px;
+        left:-200px;
+        opacity:0;
+    }
+
+    10%{
+        opacity:1;
+    }
+
+    30%{
+        top:300px;
+        left:100%;
+        opacity:0;
+    }
+
+    100%{
+        opacity:0;
+    }
+
+}
+
+/* JUEGO */
+
+#juegoArea{
+
+    position:relative;
+
+    width:100%;
+
+    height:400px;
+
+    overflow:hidden;
+
+    margin-top:30px;
+
+    border-radius:25px;
+
+    background:
+    rgba(255,255,255,0.05);
+
+    border:
+    1px solid rgba(255,255,255,0.1);
+}
+
+/* CORAZONES */
+
+.corazonJuego{
+
+    position:absolute;
+
+    font-size:35px;
+
+    cursor:pointer;
+
+    animation:caer 5s linear forwards;
+}
+
+@keyframes caer{
+
+    from{
+        top:-50px;
+    }
+
+    to{
+        top:100%;
+    }
+
+}
+
+#score{
+
+    margin-top:15px;
+
+    font-size:1.2rem;
+
+    color:#ffd6ec;
+}
+
+#mensajeJuego{
+
+    margin-top:25px;
+
+    font-size:1.4rem;
+
+    color:#ffb6d9;
+}
+
+/* PANTALLA FINAL */
+
+#pantallaFinal{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background:
+    rgba(0,0,0,0.88);
+
+    backdrop-filter:blur(10px);
+
+    display:none;
+
+    justify-content:center;
+    align-items:center;
+
+    z-index:99999;
+
+    text-align:center;
+
+    padding:20px;
+}
+
+.final-box{
+
+    animation:aparecerFinal 2s ease;
+}
+
+.final-box h2{
+
+    font-size:3rem;
+
+    color:#ffd6ec;
+
+    margin-top:20px;
+
+    text-shadow:
+    0 0 15px #ff7dc0;
+}
+
+.final-box p{
+
+    margin-top:20px;
+
+    font-size:1.3rem;
+
+    color:white;
+
+    opacity:0.9;
+}
+
+@keyframes aparecerFinal{
+
+    from{
+        opacity:0;
+        transform:scale(0.8);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+
+}
+
+@keyframes caerFinal{
+
+    from{
+        transform:translateY(-100px);
+        opacity:1;
+    }
+
+    to{
+        transform:translateY(120vh);
+        opacity:0;
+    }
+
+}
+
+/* BOTON JUEGO */
+
+#btnJuego{
+
+    margin-top:30px;
+
+    padding:15px 30px;
+
+    border:none;
+
+    border-radius:25px;
+
+    background:#ff4fa3;
+
+    color:white;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+    box-shadow:
+    0 0 20px rgba(255,79,163,0.5);
+}
+
+#btnJuego:hover{
+
+    transform:scale(1.05);
+}
+
+/* AREA DEL JUEGO */
+
+#juegoArea{
+
+    position:relative;
+
+    width:100%;
+
+    height:400px;
+
+    overflow:hidden;
+
+    margin-top:30px;
+
+    border-radius:25px;
+
+    background:
+    rgba(255,255,255,0.05);
+
+    border:
+    1px solid rgba(255,255,255,0.1);
+}
+
+/* CORAZONES */
+
+.corazonJuego{
+
+    position:absolute;
+
+    top:-50px;
+
+    font-size:40px;
+
+    cursor:pointer;
+
+    animation:caer 5s linear forwards;
+}
+
+@keyframes caer{
+
+    from{
+        top:-50px;
+    }
+
+    to{
+        top:100%;
+    }
+
+}
+
+/* BOTON */
+
+#btnJuego{
+
+    margin-top:30px;
+
+    padding:15px 30px;
+
+    border:none;
+
+    border-radius:25px;
+
+    background:#ff4fa3;
+
+    color:white;
+
+    font-size:18px;
+
+    cursor:pointer;
 }
 
 </style>
 </head>
 <body>
+
+<div class="cielo">
+    <div class="luna"></div>
+</div>
+
+<div class="estrellas"></div>
+<div class="estrella-fugaz"></div>
+    <!-- PANTALLA PIN -->
+<div id="pantallaPin">
+
+    <div class="pin-box">
+
+        <h2>Ingresa la Clave💗</h2>
+
+        <p class="frase">
+                   🥹✨💚💗
+        </p>
+
+        <input type="password" id="pinInput" placeholder="••••">
+
+        <button onclick="verificarPin()">Entrar</button>
+
+        <p id="mensajeError"></p>
+
+    </div>
+
+</div>
 
 <!-- Música -->
 
@@ -309,17 +900,18 @@ body::before{
 
 <!-- Inicio -->
 
+<div id="pagina" style="display:none;">
+
 <section id="inicio">
 
-  <div class="container">
-  </div>
+  
         <h1>Nuestro Comienzo💚💗</h1>
         <p>💚💗✨ 16 de Mayo 2025 - 16 de Mayo 2026 💚💗✨ </p>
 <p>
 Nuestra historia en canciones,
 recuerdos y momentos bonitos 💚💗✨
 </p>
-    </div>
+    
 
 <button id="botonInicio" onclick="abrirPagina()">
 Empezar ✨💚💗
@@ -362,10 +954,10 @@ Fuerza Rigida y Grupo Fronteras
 <div class="recuerdo">
 Esta canción marcó uno de nuestro inicio 💗
 Mientras Hablabamos con vista a la playa, hablamos nos reiamos y derrepente nos dimos cuenta 
-que sonaba un poquito muy seguido aunque no nos importo mucho.
+que sonaba un poquito muy seguido esta canción aunque no nos importo mucho.
 
 después de un año la volvemos a escuchar no como personas recien conociendose.
-Si no como pareja mientras miramos la playa y hablamos en modo recuerdo 🥹
+Si no como pareja mientras miramos la playa y hablamos en modo recuerdos 🥹
 y tambien el "Son Reales ?"💗. 
 </div>
 
@@ -406,7 +998,7 @@ Grupo 5 💗
 </div>
 
 <div class="recuerdo">
-Es inevitable recordar que despues de escuchar esta canción cuando nos conocimos,
+Es inevitable recordar que después de escuchar esta canción cuando nos conocimos,
 recuerdo verte manejando y mientras sonaba la música comenze a sentir ese ritmo si nos habiamos conocido 
 en persona como horas pero senti mucha conexión como te he dicho como que te he conocido antes, supe desde el primer momento
 que conectamos y mientras te miraba decia como dice la canción
@@ -439,7 +1031,7 @@ Nuestra Playlist 💚💗
 
 <iframe data-testid="embed-iframe" style="border-radius:12px" 
 style="border-radius:12px" src="https://open.spotify.com/embed/playlist/6G84PLnKEO0U7KqKNh6dmD?utm_source=generator" 
-width="100%" height="352" frameBorder="0" 
+width="80%" height="352" frameBorder="0" 
 allowfullscreen="" allow="autoplay; 
 clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
 loading="lazy">
@@ -467,20 +1059,50 @@ Gracias por llegar a mi vida 🥹💚💗
 
 <div class="fotos">
 
+<img src="primeras citas.jpg" class="fotoschat">    
 <img src="manito.jpeg">
 <img src="poquito.jpeg">
-<a href="1666.jpeg" target="_blank">
-<img src="1666.jpeg" class="fotoGrande">
-</a>
+<img src="vamosacomer.jpeg" class="fotoschat">
+<img src="salgo730.jpeg" class="fotoschat">
+<img src="tomamostecito.jpeg" class="fotoschat">
+<img src="mimama.jpeg" class="fotoschat">
+<img src="perlasenelauto.jpeg" class="fotoschat">
+<img src="tanlindo.jpeg" class="fotoschat">
+<img src="brillitos.jpeg" class="fotoschat">
+<img src="1666.jpeg" class="fotoschat">
 
 </div>
 
 </div>
+                                         
+
 
 </section>
 
 </div>
+<!-- JUEGO -->
 
+<section class="seccion">
+
+<div class="card cartaFinal">
+
+<h2>🎮 Atrapa los corazones 💗</h2>
+
+<p id="score">
+Corazones atrapados: 0 / 10
+</p>
+
+<button id="btnJuego" onclick="iniciarJuego()">
+💗 Comenzar Juego
+</button>
+
+<div id="juegoArea" style="display:none;"></div>
+
+<p id="mensajeJuego"></p>
+
+</div>
+
+</section>
 <script>
 
 /* Abrir */
@@ -506,26 +1128,30 @@ tiempo perfecto💗.
 
 Es inevitable escuchar nuestra playlist y recordar 
 como empezo nuestra linda historia y asi sucesivamente mientras 
-va avanzando la playlist, asi tambien iba avanzando nuestra historia
+va avanzando la playlist, asi tambien vamos avanzando nuestra relación
 Y como nuestro amor va creciendo más y más💗.
 
 Gracias por cada momento,
+Cada momento de emoción,
 cada conversación,
 cada abrazo,
 cada risa
 y cuando estas lejos o trabajando 
 te siento en cada canción de amor 💗 .
 
-Mayo 16 sonaba 444 , 111, ke pa-remix o QLOO cuando salio 
-y ya era nuestra tercera cita jiji.
+Mayo 16 sonaba 444 , 111, ke pa-remix o QLOO cuando salio y esperer en verte para escucharla juntos,
+hay fue nuestra tercera cita jiji practicamente fuimos badtz-maru y kuromi tomandose la mano por primera vez
+y esa noche fue que tan linda  por las muestras de cariño, nuestra primera tomadita de mano, me senti tan bien
+compartiendo a tu lado y mi alma y mi corazón se sentian seguros y 
+estaban seguros de que tu y yo podriamos tener Nuestra Historia de Amor 🥹💚💗.
 
 Ojitos Lindos que todavia recuerdo el lee el titulo. Te la dedico
 Ojos Color Sol mientras ibamos al mcdonals,
 Bemaste, vivo, destello, sparks o tema para jovenes enamorados mientras
-poco a poco sale la luna y sus estrellas a veces tomando tecito o estar en el auto simplemente💚.
+poco a poco sale la luna y sus estrellas a veces tomando tecito o Simplemente estar en el auto💚.
 
-La Velocidad de la Luz, Cosas Que No Te Dije, Algo Magico, una loca historia de amor
-Corazón, Ella,Motor y Motivo, Eres Mi Bien, Cuando Nos Besamos y Amor 
+La Velocidad de la Luz, Cosas Que No Te Dije, Algo Mágico, Una Loca Historia de Amor
+Corazón, Ella, Motor y Motivo, Eres Mi Bien, Cuando Nos Besamos y Amor 
 mientras cantamos juntos💚.
 
 Weltita, You Rock My World, Algo Que Me Gusta De Ti, Miamor, What's My Name 
@@ -578,13 +1204,13 @@ setInterval(()=>{
 
 /* Contador */
 
-const inicio = new Date("2025-05-16");
+const inicio = new Date(2025, 4, 16); // 16 mayo 2025
 
 function actualizarContador(){
 
-    const hoy = new Date();
+    const ahora = new Date();
 
-    const diferencia = hoy - inicio;
+    const diferencia = ahora - inicio;
 
     const dias = Math.floor(diferencia / (1000*60*60*24));
 
@@ -594,7 +1220,184 @@ function actualizarContador(){
 
 actualizarContador();
 
+function verificarPin(){
+
+    const pinCorrecto = "1605";
+    const pinIngresado = document.getElementById("pinInput").value;
+    const caja = document.querySelector(".pin-box");
+
+    if(pinIngresado === pinCorrecto){
+
+        document.getElementById("pantallaPin").style.display = "none";
+        document.getElementById("pagina").style.display = "block";
+
+    }else{
+
+        document.getElementById("mensajeError").innerText = " Como no te acuerdas 🥺";
+
+        caja.classList.add("error");
+
+        setTimeout(() => {
+            caja.classList.remove("error");
+        }, 300);
+
+    }
+}
+
+/* ENTER */
+
+document.getElementById("pinInput")
+.addEventListener("keypress", function(event){
+
+    if(event.key === "Enter"){
+        verificarPin();
+    }
+
+});
+/* LLUVIA FINAL */
+
+function lluviaFinal(){
+
+    for(let i=0; i<80; i++){
+
+        const corazon =
+        document.createElement("div");
+
+        corazon.innerHTML = "💗";
+
+        corazon.style.position = "fixed";
+
+        corazon.style.left =
+        Math.random()*100 + "vw";
+
+        corazon.style.top = "-20px";
+
+        corazon.style.fontSize =
+        (Math.random()*25 + 15) + "px";
+
+        corazon.style.zIndex = "99999";
+
+        corazon.style.pointerEvents = "none";
+
+        corazon.style.animation =
+        `caerFinal ${Math.random()*3+3}s linear forwards`;
+
+        document.body.appendChild(corazon);
+
+        setTimeout(()=>{
+            corazon.remove();
+        },6000);
+
+    }
+
+}
+/* JUEGO CORAZONES */
+
+let puntos = 0;
+
+let juegoIniciado = false;
+
+const areaJuego =
+document.getElementById("juegoArea");
+
+/* CREAR CORAZONES */
+
+function crearCorazonJuego(){
+
+    if(!juegoIniciado) return;
+
+    const corazon =
+    document.createElement("div");
+
+    corazon.classList.add("corazonJuego");
+
+    corazon.innerHTML = "💗";
+
+    corazon.style.left =
+    Math.random()*90 + "%";
+
+    areaJuego.appendChild(corazon);
+
+    corazon.addEventListener("click",()=>{
+
+        puntos++;
+
+        document.getElementById("score")
+        .innerHTML =
+        `Corazones atrapados: ${puntos} / 10`;
+
+        corazon.remove();
+
+        if(puntos >= 10){
+
+            juegoIniciado = false;
+
+            document.getElementById("mensajeJuego")
+            .innerHTML =
+            "🥹💚💗 Ganaste mi corazón para siempre 💗💚🥹";
+
+            lluviaFinal();
+
+            document.getElementById("pantallaFinal")
+            .style.display = "flex";
+
+        }
+
+    });
+
+    setTimeout(()=>{
+        corazon.remove();
+    },5000);
+
+}
+
+/* INICIAR */
+
+function iniciarJuego(){
+
+    juegoIniciado = true;
+
+    document.getElementById("btnJuego")
+    .style.display = "none";
+
+    document.getElementById("juegoArea")
+    .style.display = "block";
+
+}
+
+/* GENERAR */
+
+setInterval(crearCorazonJuego,1000);
+
+
 </script>
+<div id="contador"></div>
+
+<div id="contador"></div>
+
+<!-- PANTALLA FINAL -->
+
+<div id="pantallaFinal">
+
+    <div class="final-box">
+
+        <h1>💚💗✨</h1>
+
+        <h2>
+            Gracias por Llegar a Mi Vida
+        </h2>
+
+        <p>
+            Te Amo Más Que Mi Corazón, Más Que Todo Mi Ser y Más Que Mi Alma🥹💗
+        </p>
+
+    </div>
+
+</div>
 
 </body>
 </html>
+
+
+
+
